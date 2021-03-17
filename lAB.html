@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
+  <title>Document</title>
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+  }
+  a {text-decoration: none;}
+  li {list-style: none;}
+  body {
+    background-image: url(../img/bg.png);
+    background-color: #f8f8f8;
+    font: 12px Tahoma sans-serif;
+    border-top: 5px solid #7e7e7e;
+  }
+  #wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header {
+    padding-top: 28px;
+  }
+  form[name="search"] {
+    float: right;
+  }
+  input[type="text"] {
+    border: 1px solid #e7e7e7;
+    height: 30px;
+    color: #b2b2b2;
+    padding: 0 10px;
+    background-color: #f3f3f3;
+  }
+  input[type="text"]:focus {
+    outline: none;
+  }
+  button[type="submit"] {
+    height: 32px;
+    width: 42px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #29c5e6;
+    border: none;
+    cursor: pointer;
+  }
+  button[type="submit"]:focus {
+    outline: none;
+  }
+  /*NAVIGATION*/
+  .handle {
+    display: none;
+    padding: 10px 33px;
+    color: #827f7f;
+    background-color: #b9b9b9;
+    text-transform: uppercase;
+    font: 14px 'Oswald', sans-serif;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .top-menu {
+    margin-top: 27px;
+    transition: max-height 0.5s;
+  }
+  .top-menu li:first-child {border-left: 1px solid #e7e7e7;}
+  .top-menu li:last-child {border-right: 1px solid #e7e7e7;}
+  .top-menu li {
+    float:left;
+    display: inline-block;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+  }
+  .top-menu li a {
+    display: block;
+    padding: 10px 33px;
+    color: #b2b2b2;
+    background-color: #f3f3f3;
+    text-transform: uppercase;
+    font: 14px 'Oswald', sans-serif;
+    letter-spacing: 0.1px;
+    transition: all 0.3s;
+  }
+  .top-menu li a:hover {
+    background-color: #29c5e6;
+    color: #fff;
+  }
+  .drop {
+    position: relative;
+  }
+  .drop:hover .dropdown {
+    display: block;
+  }
+  .dropdown {
+    position: absolute;
+    display: none;
+    width: 102%;
+    top: 100%;
+    left: 0;
+  }
+  .dropdown li {
+    display: block;
+  }
+  /*HEADING*/
+  #heading {
+    padding-left: 40px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+      background-image: url(../img/bgh.png);
+    background-repeat: repeat;
+  }
+  #heading h1 {
+    display: inline-block;
+      color: #7e7e7e;
+      font: 40px/40px 'Oswald', sans-serif;
+      background: url(../img/bg.png);
+      margin: 0;
+      padding: 0 10px 2px 10px;
+    text-transform: uppercase;
+  }
+  /*ASIDE BLOCK*/
+  aside {
+    float: left;
+  }
+  .aside-nav {
+    border: 1px solid #e7e7e7;
+  }
+  aside li {
+    /*list-style-type: square;
+    list-style-position: inside;;*/
+    background-color: #f3f3f3;
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+  }
+  aside li:last-child{border-bottom: 1px solid #e7e7e7;}
+  aside li a {
+    width: 215px;
+    height: 35px;
+    display: inline-block;
+    font: 14px 'Oswald', sans-serif;
+    color: #8f8f8f;
+    text-transform: uppercase;
+    padding-left: 30px;
+    padding-top: 15px;
+  }
+  aside li a:hover {
+    color: #29c5e6;
+  }
+  /*ASIDE BOTTOM BLOCK*/
+  .office {
+    width: 250px;
+    margin-top: 30px;
+  }
+  .office h2 {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #29c5e6;
+    font: 14px 'Oswald', sans-serif;
+    padding-left: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .office img {
+    border: 11px solid #f3f3f3;
+    box-sizing: border-box;
+  }
+  /*SECTION*/
+  section {
+    margin-left: 280px;
+  }
+  blockquote {
+    padding: 19px 22px 15px 22px;
+    background-color: #29c5e6;
+    margin-bottom: 22px;
+  }
+  .qoute {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 33px;
+    font-style: italic;
+    font-weight: lighter;
+  }
+  cite {
+    display: block;
+    font: 20px 'Oswald', sans-serif;
+    color: #1d8ea6;
+    text-align: right;
+  }
+  section p {
+    color: #8f8f8f;
+    font-size: 12px;
+    margin-bottom: 47px;
+  }
+  .image {
+    width: 325px;
+    height: 180px;
+    background-image: url(../img/image.png);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+  .image:hover .descr {
+    top: 0;
+  }
+  .left{
+    margin-left: 27px;
+  }
+  .descr {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0,0,0, 0.5);
+    color: #fff;
+    font: 16px 'Oswald', sans-serif;
+    text-align: center;
+    padding-top: 70px;
+    transition: all 0.3s;
+  }
+  /*TEAM BLOCK*/
+  
+  .team {
+    margin-left: -41px;
+  }
+  
+  section h3 {
+    margin-top: 27px;
+    margin-bottom: 17px;
+    margin-left: 41px;
+    color: #fff;
+    background-color: #29c5e6;
+    padding: 5px;
+    font: 30px 'Oswald', sans-serif;
+    text-transform: uppercase;
+  }
+  figure {
+    display: inline-block;
+  }
+  figcaption {
+    font: 16px 'Oswald', sans-serif;
+    color: #8f8f8f;
+    font-weight: lighter;
+  }
+  figure span {
+    font: 14px 'Oswald', sans-serif;
+    color: #45cce9;
+  }
+  figure {
+    margin-left: 41px;
+  }
+  .top-figure {
+    margin-bottom: 17px;
+  }
+  .bottom-figure {
+    margin-bottom: 53px;
+  }
+  footer {
+    background-color: #7e7e7e;
+    color: #dbdbdb;
+    font-size: 14px;
+  }
+  .footer-content {
+    max-width: 960px;
+    margin: 0 auto;
+    height: 120px;
+    padding-top: 5px;
+  }
+  footer h3 {
+    font: 14px 'Oswald', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  footer hr {
+    color: #919191;
+    background-color: #919191;
+    border: 0;
+    height:1px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+  }
+  .twitter-footer {
+    width: 309px;
+    float: left;
+    padding: 0;
+  }
+  time a {
+    color: #b0abab;
+    text-decoration: underline;
+  }
+  .twitter-footer p {
+    margin-top: 4px;
+  }
+  .sitemap {
+    margin-left: 20px;
+    width: 150px;
+    float: left;
+  }
+  .sitemap div {
+    display: inline-block;
+    margin-top: 5px;
+  }
+  .sitemap div + div {
+    margin-left: 40px;
+  }
+  .sitemap a {
+    display: block;
+    color: #dbdbdb;
+    margin-bottom: 12px;
+  }
+  .sitemap a:hover {
+    text-decoration: underline;
+  }
+  .socials {
+    width: 130px;
+    float: left;
+    margin-left: 20px;
+  }
+  .social {
+    margin-top: 6px;
+    height: 30px;
+    width: 30px;
+    background-image: url(../img/Facebook.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+  
+  }
+  .social + .social {
+    margin-left: 7px;
+  }
+  .social-small {
+    height: 16px;
+    width: 16px;
+    background-image: url(../img/Instagram.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-top: 9px;
+  }
+  .social-small + .social-small {
+    margin-left: 4px;
+  }
+  .facebook {
+    background-position: -40px 0;
+  }
+  .google {
+    background-position: -80px 0;
+  }
+  .youtube {
+    background-position: -24px 0;
+  }
+  .fickr {
+    background-position: -48px 0;
+  }
+  .insta {
+    background-position: -72px 0;
+  }
+  .rss {
+    background-position: -96px 0;
+  }
+  .bottom-logo {
+    float: right;
+    margin-top: 30px;
+    text-align: right;
+  }
+  .bottom-logo a {
+    color: #dbdbdb;
+    text-decoration: underline;
+  }
+</style>
+<body>
+  <div id="wrapper">
+    <header>
+      <!-- LOGO -->
+      <img src="img/Logo.png" alt="logo">
+      <!-- SEARCH -->
+      <form name="search" action="#" method="get">
+	      <input type="text" name="q" placeholder="Search"><button type="submit">GO</button>
+      </form>
+      <!-- NAVIGATION -->
+      <nav>
+        <div onclick="show()" class="handle">Menu</div>
+        <ul class="top-menu">
+            <li><a href="">Home</a></li>
+            <li class="drop">
+              <a href="">About us</a>
+              <ul class="dropdown">
+                <li><a href="#">Пункт 1</a></li>
+                <li><a href="#">Пункт 2</a></li>
+                <li><a href="#">Пункт 3</a></li>
+                <li><a href="#">Пункт 4</a></li>
+              </ul>
+            </li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Partnes</a></li>
+            <li><a href="">Customers</a></li>
+            <li><a href="">Projects</a></li>
+            <li><a href="">Carrers</a></li>
+            <li><a href="">Contacts</a></li>
+        </ul>
+      </nav>
+      <div id="heading">
+        <h1>About us</h1>
+      </div>
+    </header>
+    <!-- ASIDE MENU -->
+    <aside>
+      <ul class="aside-nav">
+        <li><a href="">Lorem ipsum</a></li>
+        <li><a href="">Donec tincidunt laoreet</a></li>
+        <li><a href="">Vestibulum elit</a></li>
+        <li><a href="">Etiam pharetra</a></li>
+        <li><a href="">Phasellus placerat</a></li>
+        <li><a href="">Cras et nisi vitae odio</a></li>
+      </ul>
+      <div class="office">
+        <h2>Our offices</h2>
+        <img src="img/Map.png" alt="Our offices">
+      </div>
+    </aside>
+
+    <section>
+      <blockquote>
+	      <p class="qoute">“Quisque in enim velit, at dignissim est. Nulla ul corper, dolor ac pellentesque placerat, justo tellus gravida erat, vel porttitor libero erat.”</p>
+	      <cite>John Doe, Lorem Ipsum</cite>
+	    </blockquote>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non neque ac sem accumsan rhoncus ut ut turpis. In hac habitasse platea dictumst. Proin eget nisi erat, et feugiat arcu. Duis semper porttitor lectus, ac pharetra erat imperdiet nec. Morbi interdum felis nulla. Aenean eros orci, pellentesque sed egestas vitae, auctor aliquam nisi. Nulla nec libero eget sem rutrum iaculis. Quisque in enim velit, at dignissim est. Nulla ullamcorper, dolor ac pellentesque placerat, justo tellus gravida erat, vel porttitor libero erat condimentum metus. Donec sodales aliquam orci id suscipit. Proin sed risus sit amet massa ultrices laoreet quis a erat. Aliquam et metus id erat vulputate egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </p>
+
+      <p>Donec vel nisl nibh. Aenean quam tortor, tempus sit amet mattis dapibus, egestas tempor dui. Duis vestibulum imperdiet risus pretium pretium. Nunc vitae porta ligula. Vestibulum sit amet nulla quam. Aenean lacinia, ante vitae sodales sagittis, leo felis bibendum neque, mattis sagittis neque urna vel magna. Sed at sem vitae lorem blandit feugiat.
+      </p>
+
+      <p>Donec vel orci purus, ut ornare orci. Aenean rutrum pellentesque quam. Quisque gravida adipiscing augue, eget commodo augue egestas varius. Integer volutpat, tellus porta tincidunt sodales, lacus est tempus odio, fringilla blandit tortor lectus ut sem. Pellentesque nec sem lacus, sit amet consequat neque. Etiam varius urna quis arcu cursus in consectetur dui tincidunt. Quisque arcu orci, lacinia eget pretium vel, iaculis pellentesque nibh. Etiam cursus lacus eget neque viverra vestibulum. Aliquam erat volutpat. Duis pulvinar tellus ut urna facilisis mollis. Maecenas ac pharetra dui. Pellentesque neque ante, luctus eget congue eget, rhoncus vel mauris. Duis nisi magna, aliquet a convallis non, venenatis at nisl. Nunc at quam eu magna malesuada dignissim. Duis bibendum iaculis felis, eu venenatis risus sodales non. In ligula mi, faucibus eu tristique sed, vulputate rutrum dolor.</p>
+
+      <!-- IMAGES -->
+      <div class="image"><img src="img/photo.png" height="325px"></div>
+      <div class="image left"><img src="img/photo.png" height="325px"></div>
+      <!-- TEAM -->
+      <div class="team">
+        <h3>Our Team</h3>
+
+        <figure class="top-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>John Doe</figcaption>
+          <span>ceo</span>
+        </figure>
+
+        <figure class="top-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>Sandra Pittsley</figcaption>
+          <span>team lead</span>
+        </figure>
+
+        <figure class="top-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>Julio Simser</figcaption>
+          <span>senior developer</span>
+        </figure>
+
+        <figure class="top-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>Margery Venuti</figcaption>
+          <span>senior developer</span>
+        </figure>
+
+        <figure class="top-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>Fernando Tondrea</figcaption>
+          <span>developer</span>
+        </figure>
+
+        <figure class="bottom-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>Ericka Nobriga</figcaption>
+          <span>art director</span>
+        </figure>
+
+        <figure class="bottom-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>Cody Rousselle</figcaption>
+          <span>senior ui designer</span>
+        </figure>
+
+        <figure class="bottom-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>Erick Wollman</figcaption>
+          <span>senior ui designer</span>
+        </figure>
+
+        <figure class="bottom-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>Dona Shoff</figcaption>
+          <span>ui designer</span>
+        </figure>
+
+        <figure class="bottom-figure">
+          <img src="img/photo.png" alt="photo">
+          <figcaption>Darryl Brynton</figcaption>
+          <span>ux designer</span>
+        </figure>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="twitter-footer">
+        <h3>Twitter feed</h3>
+        <hr class="line">
+        <time datetime="2012-10-23"><a href="#">23 oct</a></time>
+        <p>In ultricies pellentesque massa a porta. Aliquam ipsum enim, hendrerit ut porta nec, ullamcorper et nulla. In eget mi dui, sit amet scelerisque nunc. Aenean aug</p>
+      </div>
+
+      <div class="sitemap">
+        <h3>sitemap</h3>
+        <hr>
+        <div>
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+        </div>
+        <div>
+          <a href="#">Parters</a>
+          <a href="#">Support</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+
+      <div class="socials">
+        <h3>Social networks</h3>
+        <hr>
+        <img src="img/Facebook.png">
+        <img src="img/Instagram.png">
+        <a href="#" class="social twitter"></a>
+        <a href="#" class="social facebook"></a>
+        <a href="#" class="social google"></a>
+        <a href="#" class="social-small vimeo"></a>
+        <a href="#" class="social-small youtube"></a>
+        <a href="#" class="social-small fickr"></a>
+        <a href="#" class="social-small insta"></a>
+        <a href="#" class="social-small rss"></a>
+        <img scr="img\Instagram.png">
+      </div>
+
+      <div class="bottom-logo">
+        <a href="#"><img src="img/Logo-footer.png" alt="Logo"></a>
+        <p>Copyright © 2012 Whitesquare. A <a href="#">pcklab</a> creation</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
